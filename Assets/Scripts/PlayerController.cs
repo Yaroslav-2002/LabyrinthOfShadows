@@ -1,8 +1,9 @@
+using DefaultNamespace;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPlayerController
 {
-    public float moveSpeed = 5f; // Speed of the player movement
+    public float moveSpeed = 1f; // Speed of the player movement
 
     private Rigidbody2D rb;
 
@@ -20,10 +21,16 @@ public class PlayerController : MonoBehaviour
         // Create movement vector
         Vector2 movement = new Vector2(moveX, moveY);
 
+        if (moveX != 0f && moveY != 0f)
+        {
+            movement *= 0.7f;
+        }
+        
         // Normalize movement vector to ensure constant speed regardless of direction
-        movement = movement.normalized * moveSpeed;
-
+        movement = movement * moveSpeed;
+        
         // Move the player
-        rb.MovePosition(rb.position + movement * Time.deltaTime);
+        rb.velocity = movement;
+        // rb.MovePosition(rb.position + movement * Time.deltaTime);
     }
 }
