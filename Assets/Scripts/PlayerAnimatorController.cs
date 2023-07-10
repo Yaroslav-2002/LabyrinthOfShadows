@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimatorController : MonoBehaviour
+public class PlayerAnimatorController
 {
-    // Start is called before the first frame update
-    void Start()
+    private static readonly int MoveUp = Animator.StringToHash("MoveUp");
+    private static readonly int MoveLeft = Animator.StringToHash("MoveLeft");
+    private static readonly int MoveRight = Animator.StringToHash("MoveRight");
+    private static readonly int MoveDown = Animator.StringToHash("MoveDown");
+
+    private  PlayerController _playerController;
+    private Animator _animator;
+    
+    public PlayerAnimatorController(PlayerController playerController)
     {
-        
+        _playerController = playerController;
+        _animator = playerController.animator;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateAnimation(Vector2 movementAxis)
     {
-        
+        _animator.SetBool(MoveUp, movementAxis is { x: 0, y: > 0 });
+        _animator.SetBool(MoveDown, movementAxis is { x: 0, y: < 0 });
+        _animator.SetBool(MoveRight, movementAxis is { x: > 0, y: 0 });
+        _animator.SetBool(MoveLeft, movementAxis is { x: < 0, y: 0 });
     }
 }

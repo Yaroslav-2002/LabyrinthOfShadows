@@ -1,36 +1,44 @@
+using System;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class PlayerController : MonoBehaviour, IPlayerController
+public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 1f; // Speed of the player movement
+    public Rigidbody2D rb;
+    public Vector2 movingAxis;
 
-    private Rigidbody2D rb;
-
+    public Animator animator;
+    private PlayerAnimatorController _animatorController;
+    private MovementController _movementController;    
+    
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        _movementController = new MovementController(this);
+        _animatorController = new PlayerAnimatorController(this);
         rb = GetComponent<Rigidbody2D>();
     }
+    // Assign the dependencies through a method
+    public void Initialize(MovementController movementController, PlayerAnimatorController animatorController)
+    {
+        _movementController = movementController;
+        _animatorController = animatorController;
+    }
+    
 
     private void Update()
+    { 
+        GetInputAxis();
+        _movementController.UpdateMovement();
+        _animatorController.UpdateAnimation(movingAxis);
+
+    }
+
+    private void GetInputAxis()
     {
-        // Get input axes
         float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
-
-        // Create movement vector
-        Vector2 movement = new Vector2(moveX, moveY);
-
-        if (moveX != 0f && moveY != 0f)
-        {
-            movement *= 0.7f;
-        }
-        
-        // Normalize movement vector to ensure constant speed regardless of direction
-        movement = movement * moveSpeed;
-        
-        // Move the player
-        rb.velocity = movement;
-        // rb.MovePosition(rb.position + movement * Time.deltaTime);
+        float moveY = Input.GetAxis("Vertical"); 
+        movingAxis = new Vector2(moveX, moveY);
     }
 }
