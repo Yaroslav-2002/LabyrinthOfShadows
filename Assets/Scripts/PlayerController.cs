@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
     private PlayerAnimatorController _animatorController;
-    private MovementController _movementController;    
+    private MovementController _movementController;
+    private InputManager _inputManager;
     
     private void Start()
     {
         animator = GetComponent<Animator>();
+        _inputManager = GetComponent<InputManager>();
         _movementController = new MovementController(this);
         _animatorController = new PlayerAnimatorController(this);
         rb = GetComponent<Rigidbody2D>();
@@ -28,17 +30,13 @@ public class PlayerController : MonoBehaviour
     
 
     private void Update()
-    { 
-        GetInputAxis();
+    {
+        if (Input.touchCount > 0)
+        {
+            movingAxis = _inputManager.GetCurrentTouchPosition(0);
+        }
+        
         _movementController.UpdateMovement();
         _animatorController.UpdateAnimation(movingAxis);
-
-    }
-
-    private void GetInputAxis()
-    {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical"); 
-        movingAxis = new Vector2(moveX, moveY);
     }
 }

@@ -18,9 +18,18 @@ public class PlayerAnimatorController
 
     public void UpdateAnimation(Vector2 movementAxis)
     {
-        _animator.SetBool(MoveUp, movementAxis is { x: 0, y: > 0 });
-        _animator.SetBool(MoveDown, movementAxis is { x: 0, y: < 0 });
-        _animator.SetBool(MoveRight, movementAxis is { x: > 0, y: 0 });
-        _animator.SetBool(MoveLeft, movementAxis is { x: < 0, y: 0 });
+        if (movementAxis is { x: 0, y: 1 })
+        {
+            _animator.SetBool(MoveUp, true);
+        }
+        else
+        {
+            _animator.SetBool(MoveUp, false);
+        }
+        
+        if (movementAxis is { x: 0, y: 1 })
+        {
+            _animator.SetBool(MoveUp, true);
+        }
     }
 }
