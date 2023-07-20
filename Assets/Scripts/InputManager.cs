@@ -38,11 +38,12 @@ public class InputManager : MonoBehaviour
     // You can add methods to access the touch positions, for example:
     public Vector2 GetStartTouchPosition(int fingerId)
     {
-        return startTouchPositions.ContainsKey(fingerId) ? startTouchPositions[fingerId] : Vector2.zero;
+        Debug.Log(fingerId);
+        return startTouchPositions.TryGetValue(fingerId, out var position) ? position : Vector2.zero;
     }
 
     public Vector2 GetCurrentTouchPosition(int fingerId)
     {
-        return currentTouchPositions.ContainsKey(fingerId) ? currentTouchPositions[fingerId] : Vector2.zero;
+        return currentTouchPositions.TryGetValue(fingerId, out var position) ? position : Vector2.zero;
     }
 }
