@@ -1,70 +1,76 @@
 using System.Collections.Generic;
 using Rooms;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Generation
 {
     public class RoomGenerator : MonoBehaviour
     {
-        [System.Serializable]
-        public struct RoomConfig
-        {
-            public RoomType roomType;
-            public GameObject prefab;
-            public List<Vector2Int> doorPositions;
-        }
-
-        public int gridSizeX = 10;
-        public int gridSizeY = 10;
-        public int maxRooms = 15;
-        public int minRooms = 5;
-
-        public List<RoomConfig> roomConfigs;
-        private List<Room> placedRooms;
+        public Tilemap tilemap; // Assign in inspector
+        public Tile wallTile; // Assign your wall tile in inspector
+        private Cell[,] _maze;
+     
+        private const int Rows = 100;
+        private const int Cols = 100;
 
         private void Start()
         {
-            GenerateRooms();
+            _maze = new EllersMaze(Rows, Cols).Generate();
+            GenerateRoom();
         }
 
-        private bool IsValidRoomPlacement(Room room, Vector2Int position)
+
+        private void GenerateRoom()
         {
-            // Check if the room fits within the gridSize and doesn't overlap with other placedRooms
-            // Return true if it fits, otherwise return false
-            return false;
-        }
-
-        private void GenerateRooms()
-        {
-            placedRooms = new List<Room>();
-
-            // Choose a random starting point on the grid
-            Vector2Int startPoint = new Vector2Int(Random.Range(0, gridSizeX), Random.Range(0, gridSizeY));
-
-            // Choose a random room config and assign it to startingRoom
-            RoomConfig startingRoomConfig = roomConfigs[Random.Range(0, roomConfigs.Count)];
-
-            // Create startingRoom and add it to placedRooms
-            Room startingRoom = RoomFactory.CreateRoom<StartRoom>();
-            placedRooms.Add(startingRoom);
-
-            while (placedRooms.Count < maxRooms)
+            for (var x = 0; x < Rows; x++)
             {
-                // Choose a random roomConfig
-                RoomConfig roomConfig = roomConfigs[Random.Range(0, roomConfigs.Count)];
-
-                // Choose a random position on the grid
-                Vector2Int position = new Vector2Int(Random.Range(0, gridSizeX), Random.Range(0, gridSizeY));
-
-                // Create a new room
-                Room newRoom = RoomFactory.CreateRoom<StartRoom>();
-
-                if (IsValidRoomPlacement(newRoom, position))
+                for (var y = 0; y < Cols; y++)
                 {
-                    // Place the room on the grid
-                    placedRooms.Add(newRoom);
+                    Debug.Log($"Row {x}, Column {y}, Down wall{_maze[x, y].DownWall}, right wall:{_maze[x, y].RightWall}");
+                }
+            }
+
+            // Perimeter
+            for (var x = -1; x <= Rows * 2; x++)
+            {
+                for (var y = -1; y <= Cols * 2; y++)
+                {
+                    if (y == Cols * 2  || x == -1 || y == -1 || x == Rows * 2)
+                    {
+                        tilemap.SetTile(new Vector3Int(x, y, 0), wallTile);
+                    }
+                }
+            }
+
+            for (var y = Cols * 2 - 2; y >= 0; y -= 2)
+            {
+                for (var x = 0; x < Rows * 2; x++)
+                {
+                    tilemap.SetTile(new Vector3Int(x, y), wallTile);
+                }
+            }
+
+            for (var row = Rows * 2 - 1; row > 0; row -= 2)
+            {
+                for (var col = 0; col < Cols * 2; col += 2)
+                {
+                    if (col == Rows * 2 - 2)
+                    {
+                        continue;
+                    }
+                    if (_maze[Mathf.Abs(row - Cols * 2) / 2, col / 2].RightWall)
+                    {
+                        tilemap.SetTile(new Vector3Int(col + 1, row), wallTile);
+                    }
+            
+                    if (!_maze[Mathf.Abs(row - Cols * 2) / 2, col / 2].DownWall)
+                    {
+                        tilemap.SetTile(new Vector3Int(col, row - 1), null);
+                    }
                 }
             }
         }
     }
+    
 }

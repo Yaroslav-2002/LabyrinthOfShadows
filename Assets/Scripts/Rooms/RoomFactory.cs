@@ -5,8 +5,6 @@ namespace Rooms
 {
     public static class RoomFactory
     {
-        private static Dictionary<RoomType, GameObject> roomPrefabs;
-
         public static Room CreateRoom<T>() where T : Room, new()
         {
             // if (roomPrefabs.ContainsKey(roomType))

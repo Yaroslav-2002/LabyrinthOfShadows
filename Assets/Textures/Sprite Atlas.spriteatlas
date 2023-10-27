@@ -651,6 +651,7 @@ SpriteAtlas:
   - {fileID: 2365555421287434024, guid: 70da2fe01ea82c647b6c8e6ab7e51003, type: 3}
   - {fileID: -8951238316956356664, guid: 70da2fe01ea82c647b6c8e6ab7e51003, type: 3}
   - {fileID: -2470637786878891766, guid: 70da2fe01ea82c647b6c8e6ab7e51003, type: 3}
+  - {fileID: 21300000, guid: 46504fe054d39324e9e2de0798f22fb3, type: 3}
   - {fileID: 21300000, guid: 8a7ff3f01f8d4dc49b0d136d7002b53f, type: 3}
   - {fileID: -3653241283965817524, guid: 0e90e30102919e24db9d4bf88f76ac41, type: 3}
   - {fileID: 4034302019245791275, guid: 0e90e30102919e24db9d4bf88f76ac41, type: 3}
@@ -2054,6 +2055,7 @@ SpriteAtlas:
   - {fileID: 1497475515138456790, guid: 2dd1ad27d1d7ae4478d7d4cff5707af6, type: 3}
   - {fileID: -3667355513976509587, guid: 2dd1ad27d1d7ae4478d7d4cff5707af6, type: 3}
   - {fileID: -5945013405696845982, guid: 2dd1ad27d1d7ae4478d7d4cff5707af6, type: 3}
+  - {fileID: 21300000, guid: 505b1f27315b81c4dbd6560fcf573085, type: 3}
   - {fileID: -8633681666972885789, guid: 2d7dd63730d66274d932852109b1a5ee, type: 3}
   - {fileID: 3879172254195245773, guid: 2d7dd63730d66274d932852109b1a5ee, type: 3}
   - {fileID: -1467674468615621396, guid: 2d7dd63730d66274d932852109b1a5ee, type: 3}
@@ -5481,6 +5483,9 @@ SpriteAtlas:
   - SlimeBlockIdleUp_1
   - SlimeBlockIdleUp_2
   - SlimeBlockIdleUp_3
+  - "DALL\xB7E 2023-10-18 17.08.44 - Pixel art of a gray warrior in armor, inspired
+    by the character style of top-down roguelike games, with a transparent background.
+    The warrior holds a "
   - TorchStanding
   - mud3_3
   - mud3_2
@@ -6884,6 +6889,9 @@ SpriteAtlas:
   - orc5_0
   - orc5_3
   - orc5_2
+  - "DALL\xB7E 2023-10-18 17.17.57 - Pixel art character, 24x28 resolution, inspired
+    by the style of Enter the Gungeon. A simplified warrior with distinctive features
+    to stand out in the "
   - sigil_Y_left_2
   - sigil_Y_left_3
   - sigil_Y_left_0
