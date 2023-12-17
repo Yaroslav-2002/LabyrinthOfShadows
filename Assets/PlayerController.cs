@@ -9,6 +9,8 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float speed;
+    
     private InputController _inputController;
 
     private Animator _animator;
@@ -19,11 +21,10 @@ public class PlayerController : MonoBehaviour
     
     private float _verticalMove;
     private float _horizontalMove;
-    private float _speed;
-
+    
     public void Initialize(InputController inputController)
     {
-        this._inputController = inputController;
+        _inputController = inputController;
     }
 
     private void Awake()
@@ -39,8 +40,6 @@ public class PlayerController : MonoBehaviour
         
         SetMovement();
         SetAnimation();
-        
-        // Debug.Log($"Movement: {_horizontalMove}, {_verticalMove}");
     }
 
     private void SetAnimation()
@@ -53,7 +52,6 @@ public class PlayerController : MonoBehaviour
 
     private void SetMovement()
     {
-        _speed = 2f;
-        _rigidbody2D.velocity = new Vector2(_horizontalMove, _verticalMove) * _speed;
+        _rigidbody2D.velocity = new Vector2(_horizontalMove, _verticalMove) * speed;
     }
 }
