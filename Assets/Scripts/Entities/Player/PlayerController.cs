@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Controls;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
+using VContainer;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -21,14 +23,15 @@ public class PlayerController : MonoBehaviour
     
     private float _verticalMove;
     private float _horizontalMove;
-    
-    public void Initialize(InputController inputController)
-    {
-        _inputController = inputController;
-    }
 
     private void Awake()
     {
+        _inputController = 
+#if UNITY_EDITOR
+            new KeyBoardInputController();
+#else 
+        new JoystickInputController(dynamicJoystick);
+#endif
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }

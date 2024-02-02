@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
-using Generation;
 using Random = UnityEngine.Random;
 
-namespace DefaultNamespace
+namespace Generation.Algorithms
 { 
-    public class EllerMaze : IGenerationAlgorithm
+    public class EllerMazeAlgorithm : IGenerationAlgorithm
     {
         private int _cols;
         private Dictionary<int, HashSet<int>> _sets;
         private int[] _maze;
-        public EllerMaze(int size)
+        
+        public EllerMazeAlgorithm(int size)
         {
             _cols = size;
         }
@@ -40,7 +40,7 @@ namespace DefaultNamespace
                 {
                     JoinSets(_maze[col], _maze[col + 1]);
                     _maze[col + 1] = _maze[col];
-                    walls[0, col - 1] = true;
+                    walls[0, col - 1] = false;
                 }
             }
         }
@@ -60,7 +60,7 @@ namespace DefaultNamespace
                     var randIndex = Random.Range(0, list.Count);
                     int actualCellPosition = list[randIndex];
                     maze2[actualCellPosition] = _maze[actualCellPosition];
-                    walls[1, actualCellPosition - 1] = true;
+                    walls[1, actualCellPosition - 1] = false;
                     if (sets2.ContainsKey(maze2[actualCellPosition]))
                         sets2[maze2[actualCellPosition]].Add(actualCellPosition);
                     else
