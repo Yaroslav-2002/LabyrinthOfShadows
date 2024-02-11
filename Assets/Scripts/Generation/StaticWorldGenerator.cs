@@ -30,14 +30,14 @@ namespace Generation
             
             for (int x = 0; x < mazeSize; x++)
             {
-                for (int y = 0; y < mazeSize; y++)
+                for (int y = 1; y < mazeSize; y++)
                 {
                     // Set the right walls
                     GenerateCell(false, x * 2 * cellSize, mazeHeight * cellSize);
-                    GenerateCell(walls[y, x], (x * 2 + 1) * cellSize, mazeHeight * cellSize);
+                    GenerateCell(walls[y - 1, x], (x * 2 + 1) * cellSize, mazeHeight * cellSize);
                 
                     // Set the bottom walls
-                    GenerateCell(walls[y - 1, x], x * 2 * cellSize, (mazeHeight - 1) * cellSize);
+                    GenerateCell(walls[y, x], x * 2 * cellSize, (mazeHeight - 1) * cellSize);
                     GenerateCell(true, (x * 2 + 1) * cellSize, (mazeHeight - 1) * cellSize);
                 }
             }

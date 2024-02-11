@@ -44,8 +44,25 @@ namespace Generation
              
              algorithm.Generate(ref walls);
 
-             //update maze for 2 rows
-             SetWallTiles();
+            var allWalls = new bool[2, mazeSize * 2 + 1];
+            for (int i = 0; i < allWalls.GetLength(0); i++)
+            {
+                for (int j = 0; j < allWalls.GetLength(1); j++)
+                {
+                    allWalls[i, j] = true;
+                }
+            }
+
+            for (int i = 0; i < allWalls.GetLength(0); i++)
+            {
+                for (int j = 1; j < allWalls.GetLength(1); j += 2)
+                {
+                    allWalls[i, j] = false;
+                }
+            }
+
+            //update maze for 2 rows
+            SetWallTiles();
          }
          
          private void SetWallTiles()

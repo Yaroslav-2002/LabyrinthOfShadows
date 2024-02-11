@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Random = UnityEngine.Random;
@@ -30,10 +31,12 @@ namespace Generation.Algorithms
         {
             MakeHorizontalConnection(ref walls);
             MakeVerticalConnection(ref walls);
+       
         }
 
         private void MakeHorizontalConnection(ref bool[,] walls)
         {
+            walls[0, 0] = true;
             for (int col = 1; col < _cols; col++)
             {
                 if (_maze[col] != _maze[col + 1] && _sets[_maze[col]] != _sets[_maze[col + 1]] && Random.Range(0, 2) == 0)
@@ -48,7 +51,7 @@ namespace Generation.Algorithms
         private void MakeVerticalConnection(ref bool[,] walls)
         {
             var maze2 = new int[_cols + 2];
-        
+            
             Dictionary<int, HashSet<int>> sets2 = new Dictionary<int, HashSet<int>>();
             foreach (var set in _sets)
             {

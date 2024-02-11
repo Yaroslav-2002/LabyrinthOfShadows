@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Graph;
+using Helpers;
 using Random = Unity.Mathematics.Random;
 
 namespace Generation.Algorithms
@@ -125,9 +125,9 @@ namespace Generation.Algorithms
         }
 
     private List<Cell> GetUnvisitedNeighbors(Cell cell)
-        {
+    {
             return cell.AdjacentCells.Where(x => !x.Visited).ToList();
-        }
+    }
 
         public class Cell
         {
