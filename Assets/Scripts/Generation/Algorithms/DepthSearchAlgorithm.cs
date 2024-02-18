@@ -103,28 +103,22 @@ namespace Generation.Algorithms
 
         private void CellPathToBoolArray()
         {
-            for (int i = 0; i < _cells.GetLength(0) - 1; i++)
+            // Initially, all entries in _walls are set to true by Init()
+
+            for (int i = 0; i < _rows; i++)
             {
-                for (int j = 0; j < _cells.GetLength(1) - 1; j++)
+                for (int j = 0; j < _cols; j++)
                 {
-                    if (_path.HasEdge(_cells[i, j], _cells[i, j + 1]))
-                        _walls[i, j] = true;
-                    else
-                    {
-                        _walls[i, j] = false;
-                    }
-                    
-                    if (_path.HasEdge(_cells[i, j], _cells[i + 1, j]))
-                        _walls[i + 1, j] = true;
-                    else
-                    {
-                        _walls[i + 1, j] = false;
-                    }
+                    // For each cell, check the right and bottom neighbor
+                    if (j < _cols - 1 && _path.HasEdge(_cells[i, j], _cells[i, j + 1]))
+                        _walls[i, j] = false; // Right passage
+                    if (i < _rows - 1 && _path.HasEdge(_cells[i, j], _cells[i + 1, j]))
+                        _walls[i, j] = false; // Bottom passage
                 }
             }
         }
 
-    private List<Cell> GetUnvisitedNeighbors(Cell cell)
+        private List<Cell> GetUnvisitedNeighbors(Cell cell)
     {
             return cell.AdjacentCells.Where(x => !x.Visited).ToList();
     }
