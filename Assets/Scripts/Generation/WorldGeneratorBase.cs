@@ -17,7 +17,7 @@ namespace Generation
         protected readonly int cellSize;
         protected readonly int mainRoomHeight;
         
-        protected bool[,] walls;
+        protected bool[,,] walls;
         protected int mazeHeight;
 
         public WorldGeneratorBase(IGenerationAlgorithm algorithm, Tilemap tileMap, Tilemap collisionTileMap, Tile wallTile, Tile pathTile, Tile collisionWallTile, int mazeSize, int cellSize, int mainRoomHeight)

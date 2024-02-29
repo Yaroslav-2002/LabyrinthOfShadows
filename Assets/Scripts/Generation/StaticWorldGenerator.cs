@@ -17,28 +17,37 @@ namespace Generation
         {
             base.Generate();
             
-            walls = new bool[mazeSize, mazeSize];
-            algorithm.Generate(ref walls);
+            walls = new bool[mazeSize, mazeSize, 2];
 
+            for (int y = 0; y < mazeSize; y++)
+            {
+                for (int x = 0; x < mazeSize; x++)
+                {
+                    walls[x, y, 0] = true;
+                    walls[x, y, 1] = true;
+                }
+            }
+
+            algorithm.Generate(ref walls);
             SetWalls();
         }
         
         private void SetWalls()
-        {
-            GenerateCell(true, -1 * cellSize, mazeHeight * cellSize);
-            GenerateCell(true, -1 * cellSize, (mazeHeight - 1) * cellSize);
-            
-            for (int x = 0; x < mazeSize; x++)
+        {      
+            for (int y = 0; y < mazeSize; y++)
             {
-                for (int y = 0; y < mazeSize - 1; y += 2)
+                for (int x = 0; x < mazeSize; x++)
                 {
+                    GenerateCell(true, -1 * cellSize, -(y * 2 * cellSize));
+                    GenerateCell(true, -1 * cellSize, -((y * 2 + 1) * cellSize));
+
                     // Set the right walls
-                    GenerateCell(false, x * 2 * cellSize, -y * cellSize);
-                    GenerateCell(walls[y, x], (x * 2 + 1) * cellSize, -y * cellSize);
-                
+                    GenerateCell(false, x * 2 * cellSize, -(y * 2 * cellSize));
+                    GenerateCell(walls[x, y, 1], x * 2 * cellSize, -((y * 2 + 1) * cellSize));
+
                     // Set the bottom walls
-                    GenerateCell(walls[y + 1, x], x * 2 * cellSize, (-y - 1) * cellSize);
-                    GenerateCell(true, (x * 2 + 1) * cellSize, (-y - 1) * cellSize);
+                    GenerateCell(walls[x, y, 0], ((x * 2) + 1) * cellSize, -(y * 2 * cellSize));
+                    GenerateCell(true, (x * 2 + 1) * cellSize, -((y * 2 + 1) * cellSize));
                 }
             }
 

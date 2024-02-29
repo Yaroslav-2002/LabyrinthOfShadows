@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Helpers;
-using Random = Unity.Mathematics.Random;
 
 namespace Generation.Algorithms
 {
-    
+
     public class DepthSearchAlgorithm : IGenerationAlgorithm
     {
-        private bool[,] _walls;
+        private bool[,,] _walls;
         private Graph<Cell> _path;
         
         private Cell[,] _cells;
@@ -17,8 +16,8 @@ namespace Generation.Algorithms
 
         public DepthSearchAlgorithm(int rows, int cols)
         {
-            this._rows = rows;
-            this._cols = cols;
+            _rows = rows;
+            _cols = cols;
         }
 
         private void SetAdjacentCells()
@@ -40,60 +39,57 @@ namespace Generation.Algorithms
         {
             _path = new Graph<Cell>();
             _cells = new Cell[_rows, _cols];
-            _walls = new bool[_rows, _cols];
+            _walls = new bool[_rows, _cols, 2];
             for (int i = 0; i < _rows; i++)
             {
                 for (int j = 0; j < _cols; j++)
                 {
-                    _walls[i, j] = true;
-                    _cells[i, j] = new Cell();
+                    _walls[i, j, 0] = true;
+                    _walls[i, j, 1] = true;
+                    _cells[i, j] = new Cell((i, j));
                     _path.AddVertex(_cells[i, j]);
                 }
             }
             SetAdjacentCells();
         }
-        
-/*
-    
-    5) Break the wall between N and A.
-    6) Assign the value A to N.
-    7) Go to step 2.
-*/
-        
-        private List<(Cell, Cell)> _cellPath;
-        private static Random _random;
-        public void Generate(ref bool[,] maze)
+
+        public void Generate(ref bool[,,] maze)
         {
-            Queue<Cell> queue = new Queue<Cell>();
-            
+            int visitedCells = 0;
+            int totalCells = _rows * _cols;
+
+            Stack<Cell> stack = new Stack<Cell>();
+
             //1) Randomly select a node (or cell) N.
-            _random = new Random(0x6E624EB7u);
-            int randomRow = _random.NextInt(_rows);
-            int randomCol = _random.NextInt(_cols);
+            var rand = new System.Random();
+            int randomCol = rand.Next(_cols);
+
+            UnityEngine.Debug.Log($"Random cell: {randomCol}");
 
             //3) Mark the cell N as visited.
-            var N = _cells[randomRow, randomCol];
-                N.Visited = true; 
-                
-            //2) Push the node N onto a queue Q.
-            queue.Enqueue(N);
+            var currentCell = _cells[0, randomCol];
+                currentCell.Visited = true;
 
-            
-            // 4) Randomly select an adjacent cell A of node N that has not been visited. If all the neighbors of N have been visited:
-            // Continue to pop items off the queue Q until a node is encountered with at least one non-visited neighbor - assign this node to N and go to step 4.
-            // If no nodes exist: stop.
-            while (queue.Count > 0)
+            visitedCells++;
+
+            while (visitedCells < totalCells)
             {
-                Cell currentCell = queue.Dequeue();
                 var unvisitedNeighbors = GetUnvisitedNeighbors(currentCell);
+                UnityEngine.Debug.Log($"Unvisited neighbors count for cell {currentCell.value}: {unvisitedNeighbors.Count}");
 
                 if (unvisitedNeighbors.Count > 0)
                 {
-                    var rand =_random.NextInt(unvisitedNeighbors.Count);
-                    Cell nextCell = unvisitedNeighbors[rand];
-                    _path.AddEdge(currentCell, nextCell);
+                    var randomNum = rand.Next(unvisitedNeighbors.Count);
+                    Cell nextCell = unvisitedNeighbors[randomNum];
                     nextCell.Visited = true;
-                    queue.Enqueue(nextCell);
+                    _path.AddEdge(currentCell, nextCell);
+                    stack.Push(currentCell);
+                    currentCell = nextCell;
+                    visitedCells++;
+                }
+                else
+                {
+                    stack.TryPop(out currentCell);
                 }
             }
 
@@ -110,29 +106,31 @@ namespace Generation.Algorithms
                 for (int j = 0; j < _cols; j++)
                 {
                     // For each cell, check the right and bottom neighbor
-                    if (j < _cols - 1 && _path.HasEdge(_cells[i, j], _cells[i, j + 1]))
-                        _walls[i, j] = false; // Right passage
                     if (i < _rows - 1 && _path.HasEdge(_cells[i, j], _cells[i + 1, j]))
-                        _walls[i, j] = false; // Bottom passage
+                        _walls[i, j, 0] = false; // Right passage
+                    if (j < _cols - 1 && _path.HasEdge(_cells[i, j], _cells[i, j + 1]))
+                        _walls[i, j, 1] = false; // Bottom passage
                 }
             }
         }
 
         private List<Cell> GetUnvisitedNeighbors(Cell cell)
-    {
-            return cell.AdjacentCells.Where(x => !x.Visited).ToList();
-    }
-
-        public class Cell
         {
-            public bool Visited { get; set; }
-            public List<Cell> AdjacentCells { get; private set; }
+            return cell.AdjacentCells.Where(x => !x.Visited).ToList();
+        }
+       
+    }
+    public class Cell
+    {
+        public bool Visited { get; set; }
+        public List<Cell> AdjacentCells { get; private set; }
 
-            public Cell()
-            {
-                Visited = false;
-                AdjacentCells = new List<Cell>();
-            }
+        public (int i, int j) value;
+
+        public Cell((int i, int j) value)
+        {
+            AdjacentCells = new();
+            this.value = value;
         }
     }
 }

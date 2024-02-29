@@ -32,36 +32,16 @@ namespace Generation
          private void GenerateRow()
          {
              // obtain walls for 2 rows
-             walls = new bool[2, mazeSize];
+             walls = new bool[1, mazeSize , 2];
              
-             for (int i = 0; i < 2; i++)
+             for (int y = 0; y < mazeSize; y++)
              {
-                 for (int j = 0; j < mazeSize; j++)
-                 {
-                     walls[i, j] = true;
-                 }
+                walls[0, y, 0] = true;
+                walls[0, y, 1] = true;
              }
              
-             algorithm.Generate(ref walls);
-
-            var allWalls = new bool[2, mazeSize * 2 + 1];
-            for (int i = 0; i < allWalls.GetLength(0); i++)
-            {
-                for (int j = 0; j < allWalls.GetLength(1); j++)
-                {
-                    allWalls[i, j] = true;
-                }
-            }
-
-            for (int i = 0; i < allWalls.GetLength(0); i++)
-            {
-                for (int j = 1; j < allWalls.GetLength(1); j += 2)
-                {
-                    allWalls[i, j] = false;
-                }
-            }
-
             //update maze for 2 rows
+            algorithm.Generate(ref walls);     
             SetWallTiles();
          }
          
@@ -82,10 +62,10 @@ namespace Generation
                  
                  // Set the right walls
                  GenerateCell(false, cellStartX, cellStartY); //Cell is always a pass
-                 GenerateCell(walls[0, x], wallStartX, cellStartY);
+                 GenerateCell(walls[0, x, 0], wallStartX, cellStartY);
                  
                  // Set the bottom walls
-                 GenerateCell(walls[1, x], cellStartX, cellStartYBottom);
+                 GenerateCell(walls[0, x, 1], cellStartX, cellStartYBottom);
                  GenerateCell(true, wallStartX, cellStartYBottom);
              }
 

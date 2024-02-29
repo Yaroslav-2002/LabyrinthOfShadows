@@ -26,6 +26,6 @@ namespace Helpers
         public bool HasEdge(T vertex1, T vertex2)
         {
             return _adjacencyList.ContainsKey(vertex1) && _adjacencyList[vertex1].Contains(vertex2);
-        }
+        } 
     }
 }

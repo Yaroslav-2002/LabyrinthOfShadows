@@ -27,28 +27,28 @@ namespace Generation.Algorithms
             }
         }
 
-        public void Generate(ref bool[,] walls)
+        public void Generate(ref bool[,,] walls)
         {
             MakeHorizontalConnection(ref walls);
             MakeVerticalConnection(ref walls);
        
         }
 
-        private void MakeHorizontalConnection(ref bool[,] walls)
+        private void MakeHorizontalConnection(ref bool[,,] walls)
         {
-            walls[0, 0] = true;
+            walls[0, 0, 0] = true;
             for (int col = 1; col < _cols; col++)
             {
                 if (_maze[col] != _maze[col + 1] && _sets[_maze[col]] != _sets[_maze[col + 1]] && Random.Range(0, 2) == 0)
                 {
                     JoinSets(_maze[col], _maze[col + 1]);
                     _maze[col + 1] = _maze[col];
-                    walls[0, col - 1] = false;
+                    walls[0, col - 1, 0] = false;
                 }
             }
         }
     
-        private void MakeVerticalConnection(ref bool[,] walls)
+        private void MakeVerticalConnection(ref bool[,,] walls)
         {
             var maze2 = new int[_cols + 2];
             
@@ -63,7 +63,7 @@ namespace Generation.Algorithms
                     var randIndex = Random.Range(0, list.Count);
                     int actualCellPosition = list[randIndex];
                     maze2[actualCellPosition] = _maze[actualCellPosition];
-                    walls[1, actualCellPosition - 1] = false;
+                    walls[0, actualCellPosition - 1, 1] = false;
                     if (sets2.ContainsKey(maze2[actualCellPosition]))
                         sets2[maze2[actualCellPosition]].Add(actualCellPosition);
                     else
