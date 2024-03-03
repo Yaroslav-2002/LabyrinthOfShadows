@@ -30,6 +30,26 @@ namespace Generation
 
             algorithm.Generate(ref walls);
             SetWalls();
+            CreateCentralRoom();
+        }
+
+        private int centralRoomSize = 20;
+
+        private void CreateCentralRoom()
+        {
+            int startXCoordinate = (mazeSize * 2 + 1 - centralRoomSize) / 2 - 1;
+            int endXCoordinate = startXCoordinate + centralRoomSize;
+
+            int startYCoodinate = startXCoordinate;
+            int endYCoordinate = endXCoordinate;
+
+            for (int x = startXCoordinate; x <= endXCoordinate; x++)
+            {
+                for (int y = startYCoodinate; y <= endYCoordinate; y++)
+                {
+                    GenerateCell(false, x * cellSize, -(y * cellSize));
+                }
+            }
         }
         
         private void SetWalls()
