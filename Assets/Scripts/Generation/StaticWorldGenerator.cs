@@ -5,12 +5,11 @@ using VContainer.Unity;
 
 namespace Generation
 {
-    public class StaticWorldGenerator : WorldGeneratorBase
+    public class StaticWorldGenerator : WorldGeneratorBase, IStaticWorldGenerator
     {
-        public StaticWorldGenerator(IGenerationAlgorithm algorithm, Tilemap tileMap, Tilemap collisionTileMap, Tile wallTile, Tile pathTile, Tile collisionWallTile, int mazeSize, int cellSize, int mainRoomHeight)
-            : base(algorithm, tileMap, collisionTileMap, wallTile, pathTile, collisionWallTile, mazeSize, cellSize, mainRoomHeight)
+        public StaticWorldGenerator() : base()
         {
-            
+    
         }
 
         public override void Generate()

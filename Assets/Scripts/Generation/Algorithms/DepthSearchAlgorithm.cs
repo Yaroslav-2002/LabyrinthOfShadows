@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Generation;
 using Helpers;
 
 namespace Generation.Algorithms
 {
 
-    public class DepthSearchAlgorithm : IGenerationAlgorithm
+    public class DepthSearchAlgorithm : IProceduraGenAlgorithm
     {
         private bool[,,] _walls;
         private Graph<Cell> _path;

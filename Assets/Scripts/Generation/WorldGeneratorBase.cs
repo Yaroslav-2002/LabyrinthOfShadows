@@ -1,3 +1,4 @@
+using Assets.Scripts.Generation;
 using Generation.Algorithms;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -20,17 +21,16 @@ namespace Generation
         protected bool[,,] walls;
         protected int mazeHeight;
 
-        public WorldGeneratorBase(IGenerationAlgorithm algorithm, Tilemap tileMap, Tilemap collisionTileMap, Tile wallTile, Tile pathTile, Tile collisionWallTile, int mazeSize, int cellSize, int mainRoomHeight)
+        public WorldGeneratorBase(MapConfiguration mapConfiguration, IGenerationAlgorithm algorithm)
         {
-            this.algorithm = algorithm;
-            this.tileMap = tileMap; 
-            this.collisionTileMap = collisionTileMap;
-            this.wallTile = wallTile;
-            this.pathTile = pathTile;
-            this.collisionWallTile = collisionWallTile;
-            this.mazeSize = mazeSize;
-            this.cellSize = cellSize;
-            this.mainRoomHeight = mainRoomHeight;
+            this.wallTile = mapConfiguration.wallTile;
+            this.pathTile = mapConfiguration.pathTile;
+            this.collisionWallTile = mapConfiguration.collisionWallTile;
+            this.cellSize = mapConfiguration.cellSize;
+        }
+
+        public WorldGeneratorBase()
+        {
         }
 
         public virtual void Generate()
@@ -38,7 +38,7 @@ namespace Generation
             GenerateMainRoom();
             algorithm?.Init();
         }
-        
+
         protected void GenerateCell(bool isWall, int xStartCoordinate, int yStartCoordinate)
         {
             for (int x = xStartCoordinate; x < xStartCoordinate + cellSize; x++)

@@ -1,3 +1,4 @@
+using Assets.Scripts.Generation.Algorithms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace Generation.Algorithms
 { 
-    public class EllerMazeAlgorithm : IGenerationAlgorithm
+    public class EllerMazeAlgorithm : IStaticGenAlgorithm
     {
         private int _cols;
         private Dictionary<int, HashSet<int>> _sets;

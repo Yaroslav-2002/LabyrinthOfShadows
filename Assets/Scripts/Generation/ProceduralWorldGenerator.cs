@@ -7,10 +7,10 @@ using VContainer.Unity;
 
 namespace Generation
  {
-     public class ProceduralWorldGenerator : WorldGeneratorBase, ITickable
+     public class ProceduralWorldGenerator<T> : WorldGeneratorBase, ITickable
      {
          private readonly PlayerGo _player;
-         public ProceduralWorldGenerator(PlayerGo player, IGenerationAlgorithm algorithm, Tilemap tileMap, Tilemap collisionTileMap, Tile wallTile, Tile pathTile, Tile collisionWallTile, int mazeSize, int cellSize, int mainRoomHeight) : base(algorithm, tileMap, collisionTileMap, wallTile, pathTile, collisionWallTile, mazeSize, cellSize, mainRoomHeight)
+         public ProceduralWorldGenerator(PlayerGo player)
          {
              _player = player;
          }
@@ -73,4 +73,6 @@ namespace Generation
              collisionTileMap.RefreshAllTiles();
          }
      }
- }
+
+   
+}

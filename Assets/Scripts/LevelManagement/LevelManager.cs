@@ -8,7 +8,7 @@ namespace LevelManagement
 {
     public class LevelManager : MonoBehaviour
     {
-        [SerializeField] private CinemachineTargetGroup targetGroup;// Set this via the constructor or a property
+        [SerializeField] private CinemachineTargetGroup targetGroup;
         [Inject] private IWorldGenerationManager _worldGenerationManager;
         [Inject] private PlayerGo _playerGo;
         

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Controls
 {
-    public abstract class InputController
+    public abstract class InputController : IInputController
     {
         protected float HorizontalMove;
         protected float VerticalMove;
