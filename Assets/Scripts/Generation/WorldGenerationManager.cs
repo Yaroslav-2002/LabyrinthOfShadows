@@ -1,25 +1,24 @@
 using UnityEngine.Tilemaps;
 using UnityEngine;
 using Assets.Scripts.Generation;
+using VContainer;
 
 namespace Generation
 {
     public class WorldGenerationManager : IWorldGenerationManager
     {
-        private readonly WorldGeneratorBase _worldGenerator;
-        public WorldGenerationManager(MapConfiguration mapConfiguration, WorldGeneratorBase worldGenerator)
+        [Inject] private readonly IWorldGenerator _worldGenerator;
+
+        private MapConfiguration _mapConfiguration;
+
+        public WorldGenerationManager(MapConfiguration mapConfiguration)
         {
-            _worldGenerator = worldGenerator;
+            _mapConfiguration = mapConfiguration;
         }
 
         public void InitWorld()
         {
             _worldGenerator.Generate();
         }
-    }
-
-    public interface IWorldGenerationManager
-    {
-        void InitWorld();
     }
 }

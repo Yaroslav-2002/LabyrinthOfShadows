@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Entities.Player
 {
-    public class PlayerGo : IEntityGo
+    public class PlayerGo
     {
         public GameObject View { get; private set; }
 
-        public PlayerGo(GameObject playerPrefab) : base()
+        public PlayerGo(GameObject playerPrefab)
         {
             View = playerPrefab;
         }

@@ -1,4 +1,4 @@
-﻿using Cinemachine;
+﻿using Unity.Cinemachine;
 using Entities.Player;
 using Generation;
 using UnityEngine;
@@ -22,6 +22,7 @@ namespace LevelManagement
         {
             _playerGo.Init();
             targetGroup.AddMember(_playerGo.View.transform, 2, 2);
+            //get main room coordinates
             _playerGo.View.transform.position = new Vector3(20f, 10f, 0f);
         }
     }

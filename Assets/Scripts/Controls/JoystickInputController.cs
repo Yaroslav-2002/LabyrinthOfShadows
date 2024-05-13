@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Controls
+﻿namespace Controls
 {
-    public class JoystickInputController : InputController
+    public class JoystickInputController : IInputController
     {
         private DynamicJoystick _joystick;
 
@@ -11,12 +9,12 @@ namespace Controls
             _joystick = dynamicJoystick;
         }
 
-        public override float GetHorizontal()
+        public float GetHorizontal()
         {
             return _joystick.Horizontal;
         }
 
-        public override float GetVertical()
+        public float GetVertical()
         {
             return _joystick.Vertical;
         }

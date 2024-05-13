@@ -1,32 +1,48 @@
-﻿using Controls;
-using UnityEngine;
-using UnityEngine.InputSystem.XInput;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MovementController : MonoBehaviour
 {
-    private Rigidbody2D rigidBody;
     [SerializeField] private float speed;
 
-    private IInputController _inputController;
+    private Rigidbody2D _rigidBody;
+    private PlayerInput _playerInput;
+    private InputAction _buttonsAction;
+    private Vector2 _playerInputVector;
 
     private void Awake()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        _rigidBody = GetComponent<Rigidbody2D>();
+        _playerInput = GetComponent<PlayerInput>();
 
-        _inputController =
-#if UNITY_EDITOR
-    new KeyBoardInputController();
-#else 
-        new JoystickInputController(dynamicJoystick);
-#endif 
+        // Find the specific actions directly
+        _buttonsAction = _playerInput.actions["Buttons"];
+
+        // Register event handlers for actions
+       
+        _buttonsAction.performed += ButtonClicked;
+        _buttonsAction.canceled += ButtonClicked;
+    }
+
+    private void OnEnable()
+    {
+        _buttonsAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _buttonsAction.Disable();
+    }
+
+    private void ButtonClicked(InputAction.CallbackContext context)
+    {
+        _playerInputVector = context.ReadValue<Vector2>();
+        //Debug.Log("Button clicked " + context.ReadValue<Vector2>());
     }
 
     private void FixedUpdate()
     {
-        float horizontalMove = _inputController.GetHorizontal();
-        float verticalMove = _inputController.GetVertical();
-
-        Vector2 movement = new Vector2(horizontalMove, verticalMove) * speed;
-        rigidBody.velocity = movement;
+        Vector2 movement = _playerInputVector * speed;
+        _rigidBody.velocity = movement;
     }
 }

@@ -1,27 +1,25 @@
-using Assets.Scripts.Generation.Algorithms;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Random = UnityEngine.Random;
 
 namespace Generation.Algorithms
-{ 
-    public class EllerMazeAlgorithm : IStaticGenAlgorithm
+{
+    public class EllerMazeAlgorithm : IGenerationAlgorithm
     {
-        private int _cols;
+        private int _nodesNum;
         private Dictionary<int, HashSet<int>> _sets;
         private int[] _maze;
         
-        public EllerMazeAlgorithm(int size)
+        public EllerMazeAlgorithm(int roomSize)
         {
-            _cols = size;
+            _nodesNum = roomSize;
         }
 
         public void Init()
         {
-            _maze = new int[_cols + 2];
+            _maze = new int[_nodesNum + 2]; // 2 excess array members to start loop from 1
             _sets = new Dictionary<int, HashSet<int>>();
-            for (int col = 1; col <= _cols; col++)
+            for (int col = 1; col <= _nodesNum; col++)
             {
                 _maze[col] = col;
                 _sets.Add(col, new HashSet<int> {col});
@@ -30,28 +28,49 @@ namespace Generation.Algorithms
 
         public void Generate(ref bool[,,] walls)
         {
-            MakeHorizontalConnection(ref walls);
-            MakeVerticalConnection(ref walls);
-       
+            for (int y = 0; y < _nodesNum; y++)
+            {
+                IEnumerator<bool> horizontalConnectionGenerator = MakeHorizontalConnection();
+
+                for (int x = 0; x < _nodesNum; x++)
+                {
+                    if (horizontalConnectionGenerator.MoveNext())
+                    {
+                        var isWall = horizontalConnectionGenerator.Current;
+                        walls[x, y, 0] = isWall;
+                    }
+                }
+
+                IEnumerator<int> verticalConnectionGenerator = MakeVerticalConnection();
+
+                while (verticalConnectionGenerator.MoveNext())
+                {
+                    var pos = verticalConnectionGenerator.Current;
+                    walls[pos, y, 1] = false;
+                }
+            }
         }
 
-        private void MakeHorizontalConnection(ref bool[,,] walls)
+        private IEnumerator<bool> MakeHorizontalConnection()
         {
-            walls[0, 0, 0] = true;
-            for (int col = 1; col < _cols; col++)
+            for (int col = 1; col < _nodesNum; col++)
             {
                 if (_maze[col] != _maze[col + 1] && _sets[_maze[col]] != _sets[_maze[col + 1]] && Random.Range(0, 2) == 0)
                 {
                     JoinSets(_maze[col], _maze[col + 1]);
                     _maze[col + 1] = _maze[col];
-                    walls[0, col - 1, 0] = false;
+                    yield return false;
+                }
+                else
+                {
+                    yield return true;
                 }
             }
         }
     
-        private void MakeVerticalConnection(ref bool[,,] walls)
+        private IEnumerator<int> MakeVerticalConnection()
         {
-            var maze2 = new int[_cols + 2];
+            var maze2 = new int[_nodesNum + 2];
             
             Dictionary<int, HashSet<int>> sets2 = new Dictionary<int, HashSet<int>>();
             foreach (var set in _sets)
@@ -64,7 +83,8 @@ namespace Generation.Algorithms
                     var randIndex = Random.Range(0, list.Count);
                     int actualCellPosition = list[randIndex];
                     maze2[actualCellPosition] = _maze[actualCellPosition];
-                    walls[0, actualCellPosition - 1, 1] = false;
+                    yield return actualCellPosition - 1;
+
                     if (sets2.ContainsKey(maze2[actualCellPosition]))
                         sets2[maze2[actualCellPosition]].Add(actualCellPosition);
                     else
@@ -77,7 +97,7 @@ namespace Generation.Algorithms
             _sets = sets2;
             _maze = maze2;
 
-            for (int i = 1; i <= _cols; i++)
+            for (int i = 1; i <= _nodesNum; i++)
             {
                 if (_maze[i] == 0)
                 {
