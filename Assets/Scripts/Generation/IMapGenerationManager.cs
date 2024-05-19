@@ -1,6 +1,6 @@
 ﻿namespace Generation
 {
-    public interface IWorldGenerationManager
+    public interface IMapGenerationManager
     {
         void InitWorld();
     }

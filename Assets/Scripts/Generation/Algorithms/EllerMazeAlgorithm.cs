@@ -6,38 +6,43 @@ namespace Generation.Algorithms
 {
     public class EllerMazeAlgorithm : IGenerationAlgorithm
     {
-        private int _nodesNum;
+        private int _nodesNumWidth;
         private Dictionary<int, HashSet<int>> _sets;
         private int[] _maze;
-        
-        public EllerMazeAlgorithm(int roomSize)
-        {
-            _nodesNum = roomSize;
-        }
 
-        public void Init()
+        public EllerMazeAlgorithm(int nodesNumWidth)
         {
-            _maze = new int[_nodesNum + 2]; // 2 excess array members to start loop from 1
+            _nodesNumWidth = nodesNumWidth;
+
+            _maze = new int[_nodesNumWidth + 2]; // 2 excess array members to start loop from 1
             _sets = new Dictionary<int, HashSet<int>>();
-            for (int col = 1; col <= _nodesNum; col++)
+            for (int col = 1; col <= _nodesNumWidth; col++)
             {
                 _maze[col] = col;
-                _sets.Add(col, new HashSet<int> {col});
+                _sets.Add(col, new HashSet<int> { col });
             }
         }
 
-        public void Generate(ref bool[,,] walls)
+        public IEnumerator<bool[,]> GenerateRow()
         {
-            for (int y = 0; y < _nodesNum; y++)
+            while (true)
             {
+                var walls = new bool[_nodesNumWidth, 2];
+
+                for (int i = 0; i < _nodesNumWidth; i++)
+                {
+                    walls[i, 0] = true;
+                    walls[i, 1] = true;
+                }
+
                 IEnumerator<bool> horizontalConnectionGenerator = MakeHorizontalConnection();
 
-                for (int x = 0; x < _nodesNum; x++)
+                for (int x = 0; x < _nodesNumWidth - 1; x++)
                 {
                     if (horizontalConnectionGenerator.MoveNext())
                     {
                         var isWall = horizontalConnectionGenerator.Current;
-                        walls[x, y, 0] = isWall;
+                        walls[x, 0] = isWall;
                     }
                 }
 
@@ -46,14 +51,15 @@ namespace Generation.Algorithms
                 while (verticalConnectionGenerator.MoveNext())
                 {
                     var pos = verticalConnectionGenerator.Current;
-                    walls[pos, y, 1] = false;
+                    walls[pos, 1] = false;
                 }
+                yield return walls;
             }
         }
 
         private IEnumerator<bool> MakeHorizontalConnection()
         {
-            for (int col = 1; col < _nodesNum; col++)
+            for (int col = 1; col < _nodesNumWidth; col++)
             {
                 if (_maze[col] != _maze[col + 1] && _sets[_maze[col]] != _sets[_maze[col + 1]] && Random.Range(0, 2) == 0)
                 {
@@ -67,11 +73,11 @@ namespace Generation.Algorithms
                 }
             }
         }
-    
+
         private IEnumerator<int> MakeVerticalConnection()
         {
-            var maze2 = new int[_nodesNum + 2];
-            
+            var maze2 = new int[_nodesNumWidth + 2];
+
             Dictionary<int, HashSet<int>> sets2 = new Dictionary<int, HashSet<int>>();
             foreach (var set in _sets)
             {
@@ -89,7 +95,7 @@ namespace Generation.Algorithms
                         sets2[maze2[actualCellPosition]].Add(actualCellPosition);
                     else
                     {
-                        sets2.Add(maze2[actualCellPosition], new HashSet<int>(){actualCellPosition});
+                        sets2.Add(maze2[actualCellPosition], new HashSet<int>() { actualCellPosition });
                     }
                 }
             }
@@ -97,12 +103,12 @@ namespace Generation.Algorithms
             _sets = sets2;
             _maze = maze2;
 
-            for (int i = 1; i <= _nodesNum; i++)
+            for (int i = 1; i <= _nodesNumWidth; i++)
             {
                 if (_maze[i] == 0)
                 {
                     _maze[i] = _sets.Keys.Max() + 1;
-                    _sets.Add(_maze[i], new HashSet<int> {i});
+                    _sets.Add(_maze[i], new HashSet<int> { i });
                 }
             }
         }
@@ -114,7 +120,7 @@ namespace Generation.Algorithms
                 _sets[setId1].Add(col);
                 _maze[col] = setId1;
             }
-        
+
             _sets.Remove(setId2);
         }
     }

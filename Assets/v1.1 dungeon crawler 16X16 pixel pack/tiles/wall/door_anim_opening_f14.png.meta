@@ -1,7 +1,10 @@
 fileFormatVersion: 2
-guid: ae0d6f1c81a40f941977ec4bfd4ffa29
+guid: f14ca69b0565b2a48810a052acb72d83
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4951238081297722756
+    second: door_anim_opening_f14_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,7 +111,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_anim_opening_f14_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c72dcd5a23ba94bb0800000000000000
+      internalID: -4951238081297722756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_anim_opening_f14_0: -4951238081297722756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,8 +14,8 @@ namespace Assets.Scripts.Generation
 
         public int cellSize;
 
-        public int roomHeight;
-        public int roomWidth;
+        public int numHeightNodes;
+        public int numWidthNodes;
 
         public int corridorHeight;
         public int corridorWidth;

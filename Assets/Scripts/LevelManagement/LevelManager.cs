@@ -9,7 +9,7 @@ namespace LevelManagement
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private CinemachineTargetGroup targetGroup;
-        [Inject] private IWorldGenerationManager _worldGenerationManager;
+        [Inject] private IMapGenerationManager _worldGenerationManager;
         [Inject] private PlayerGo _playerGo;
         
         public void Start()

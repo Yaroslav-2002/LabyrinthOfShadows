@@ -13,22 +13,19 @@ public class GameLifeTimeScope : LifetimeScope
 {
     [SerializeField] private MapConfiguration _mapConfiguration;
     [SerializeField] private GameObject player;
-    [SerializeField] private Tilemap Tilemap;
-    [SerializeField] private Tilemap CollisionTilemap;
+    [SerializeField] private Grid grid;
 
 
     protected override void Configure(IContainerBuilder builder)
     {
-        var roomsize = _mapConfiguration.roomHeight;
-
         HandlePlayerDependencies(builder);
 
         builder.Register(context =>
         {
-            return new WorldGenerator(_mapConfiguration, Tilemap, CollisionTilemap, new EllerMazeAlgorithm(roomsize / 2));
-        }, Lifetime.Singleton).As<IWorldGenerator>();
+            return new MapGenerator(_mapConfiguration, new EllerMazeAlgorithm(_mapConfiguration.numWidthNodes), grid);
+        }, Lifetime.Singleton).As<IMapGenerator>();
 
-        builder.Register<WorldGenerationManager>(Lifetime.Singleton).WithParameter(_mapConfiguration).AsImplementedInterfaces();
+        builder.Register<MapGenerationManager>(Lifetime.Singleton).WithParameter(_mapConfiguration).AsImplementedInterfaces();
            
         builder.RegisterComponentInHierarchy<LevelManager>();
     }

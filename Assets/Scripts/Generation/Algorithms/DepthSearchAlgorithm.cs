@@ -119,7 +119,11 @@ namespace Generation.Algorithms
         {
             return cell.AdjacentCells.Where(x => !x.Visited).ToList();
         }
-       
+
+        public IEnumerator<bool[,]> GenerateRow()
+        {
+            throw new System.NotImplementedException();
+        }
     }
     public class Cell
     {

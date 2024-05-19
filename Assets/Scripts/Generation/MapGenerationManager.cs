@@ -5,13 +5,13 @@ using VContainer;
 
 namespace Generation
 {
-    public class WorldGenerationManager : IWorldGenerationManager
+    public class MapGenerationManager : IMapGenerationManager
     {
-        [Inject] private readonly IWorldGenerator _worldGenerator;
+        [Inject] private readonly IMapGenerator _worldGenerator;
 
         private MapConfiguration _mapConfiguration;
 
-        public WorldGenerationManager(MapConfiguration mapConfiguration)
+        public MapGenerationManager(MapConfiguration mapConfiguration)
         {
             _mapConfiguration = mapConfiguration;
         }
