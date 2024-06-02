@@ -16,6 +16,18 @@ public class ViewManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        foreach (var view in views)
+        {
+            view.Initialize();
+            view.Hide();
+        }
+
+        if(startingView != null)
+            Show(startingView, true);
+    }
+
     public static T GetView<T>() where T : View
     {
         foreach (var view in instance.views)

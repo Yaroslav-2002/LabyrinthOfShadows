@@ -25,6 +25,18 @@ public class DoorController: MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_isOpened)
+        {
+            return;
+        }
+        if (collision.GetComponent<PlayerController>().HasKey)
+        {
+            Open();
+        }
+    }
+
     public void Open()
     {
         IsOpened = true;

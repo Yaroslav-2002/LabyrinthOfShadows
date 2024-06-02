@@ -1,19 +1,44 @@
-using System;
+﻿using Entities.States;
+using System.Collections;
 using UnityEngine;
 
-[Serializable]
-public class Minotaur : EntityController
+namespace Entities
 {
-    [SerializeField] Animator animator;
-    [SerializeField] Rigidbody rb;
-    [SerializeField] float speed;
-
-    private static readonly int HorizMoveAnimParam = Animator.StringToHash("HorizontalMove");
-    private static readonly int VertMoveAnimParam = Animator.StringToHash("VerticalMove");
-    private static readonly int SpeedAnimParam = Animator.StringToHash("Speed");
-
-    public Minotaur() : base()
+    public class Minotaur : Enemy
     {
-        
+        [SerializeField] private Color hitColor = Color.white;
+        [SerializeField] private float hitColorDuration = 0.1f;
+
+        private SpriteRenderer spriteRenderer;
+        private Color originalColor;
+
+        protected void Start()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            originalColor = spriteRenderer.color;
+        }
+
+        protected override void SetInitialState()
+        {
+            ChangeState<PatrolState>();
+        }
+
+        public override void TakeDamage(int damage)
+        {
+            StartCoroutine(ShowHitEffect());
+        }
+
+        private IEnumerator ShowHitEffect()
+        {
+            spriteRenderer.color = hitColor;
+            yield return new WaitForSeconds(hitColorDuration);
+            spriteRenderer.color = originalColor;
+        }
+
+        public override void Die()
+        {
+            // Реалізація логіки смерті
+        }
     }
+
 }

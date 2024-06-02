@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Entities.Enemy" Collapsed="true">
+    <Position X="12" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAQCQAEQASBBhgAxNCAAAAIAAqQAAQAhAAAC4ABAgAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Minotaur" Collapsed="true">
+    <Position X="13" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAACAAACAiAQAAAAAAQAQAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\Minotaur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Skeleton" Collapsed="true">
+    <Position X="10.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\SkeletonWarrior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

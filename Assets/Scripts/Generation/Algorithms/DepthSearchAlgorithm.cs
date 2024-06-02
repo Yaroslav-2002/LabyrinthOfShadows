@@ -5,7 +5,6 @@ using Helpers;
 
 namespace Generation.Algorithms
 {
-
     public class DepthSearchAlgorithm : IProceduraGenAlgorithm
     {
         private bool[,,] _walls;
@@ -27,11 +26,10 @@ namespace Generation.Algorithms
             {
                 for (int j = 0; j < _cols; j++)
                 {
-                    if (i > 0) _cells[i, j].AdjacentCells.Add(_cells[i - 1, j]); // Add north
-                    if (j > 0) _cells[i, j].AdjacentCells.Add(_cells[i, j - 1]); // Add west
-                    if (i < _rows - 1) _cells[i, j].AdjacentCells.Add(_cells[i + 1, j]); // Add south
-                    if (j < _cols - 1) _cells[i, j].AdjacentCells.Add(_cells[i, j + 1]); // Add east
-                    // You can add diagonals or other directions based on your requirements
+                    if (i > 0) _cells[i, j].AdjacentCells.Add(_cells[i - 1, j]);
+                    if (j > 0) _cells[i, j].AdjacentCells.Add(_cells[i, j - 1]);
+                    if (i < _rows - 1) _cells[i, j].AdjacentCells.Add(_cells[i + 1, j]);
+                    if (j < _cols - 1) _cells[i, j].AdjacentCells.Add(_cells[i, j + 1]);
                 }
             }
         }
@@ -100,8 +98,6 @@ namespace Generation.Algorithms
 
         private void CellPathToBoolArray()
         {
-            // Initially, all entries in _walls are set to true by Init()
-
             for (int i = 0; i < _rows; i++)
             {
                 for (int j = 0; j < _cols; j++)

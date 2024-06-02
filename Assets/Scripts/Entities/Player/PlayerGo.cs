@@ -11,9 +11,9 @@ namespace Entities.Player
             View = playerPrefab;
         }
 
-        public void Init()
+        public void Init(Vector3 pos)
         {
-            View = Object.Instantiate(View);
+            View = Object.Instantiate(View, pos, Quaternion.identity);
         }
     }
 }

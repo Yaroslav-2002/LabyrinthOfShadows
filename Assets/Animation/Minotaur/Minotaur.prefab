@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4873827583511996543}
   - component: {fileID: 5216883172712394735}
   - component: {fileID: 2397226775759426826}
-  - component: {fileID: 4323825256275730874}
   - component: {fileID: 7886870569261931468}
   - component: {fileID: 76106738712767527}
+  - component: {fileID: 4254137541609434676}
+  - component: {fileID: 2595072538233898440}
   m_Layer: 0
   m_Name: Minotaur
   m_TagString: Untagged
@@ -30,15 +31,15 @@ Transform:
   m_GameObject: {fileID: 5771780603996785570}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.50576, y: -55.462715, z: -1.5576296}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5216883172712394735
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -46,12 +47,13 @@ Animator:
   m_GameObject: {fileID: 5771780603996785570}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fde32f921838a1149a3decdb33233524, type: 2}
+  m_Controller: {fileID: 9100000, guid: 67a3623fa8dfb49469e28455c7419306, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -74,6 +76,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -97,7 +101,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 54561215, guid: 01a5a6314d387c44387c156c73535541, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,33 +113,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4323825256275730874
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771780603996785570}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!114 &7886870569261931468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +125,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7f7efa005d1c145a4dfeb2aa592425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionRange: 9
+  attackRange: 5
+  type: 0
+  navMeshAgent: {fileID: 4254137541609434676}
+  AttackAreaOrigin: {fileID: 4873827583511996543}
+  speed: 3
+  health: 2
+  chaseSpeed: 5
+  stopBeforeAttackDistance: 0.5
+  attackCooldown: 1.5
+  damage: 10
+  patrolRadius: 10
+  navMeshLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  delay: 0.3
+  attackAreaRadius: 2.5
+  hitColor: {r: 1, g: 1, b: 1, a: 1}
+  hitColorDuration: 0.1
 --- !u!61 &76106738712767527
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -156,6 +152,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5771780603996785570}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -179,7 +176,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.00037765503, y: -0.003933251}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,6 +188,42 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 0.22399902, y: 0.27213347}
   m_EdgeRadius: 0
+--- !u!195 &4254137541609434676
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771780603996785570}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.32
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.001
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2595072538233898440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771780603996785570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c73554390ba5b4da6f7bcef0225ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 400
+  isDead: 0

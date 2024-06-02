@@ -14,9 +14,9 @@ TagManager:
   - Collision
   - Walls
   - Ground
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Trap
   - 
   - 
   - 

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ChestContreoller" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAABAAgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Entities\ChestContreoller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntityManager" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\EntityManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyData" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\KeyData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimationController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IASAwACgCAAAAAAAAgAAAAAACIAgAAEIIAAAAAAACFA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\AnimationController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MovementController" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IECAAAAAAgAAAAAAAAAAAAAAAAAAAQAIAAAAIAAACkA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\MovementControler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACACAAIAAAAAAAgAAAAAAAAAIAEIAgAAAAAgAAAAEw=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerData" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIggAAAAAAIAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\PlayerData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Torch" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Torch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Enemy" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAQCQAEQASBBhgAxNCAAAAIAAqQAAQAhAAAC4ABAgEA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Minotaur" Collapsed="true">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAACAAACAiAQAAAAAAQAQAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\Minotaur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Skeleton" Collapsed="true">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\SkeletonWarrior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.States.AttackState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAIAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\States\AttackState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Entities.States.ChaseState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAIAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\States\ChaseState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Entities.States.EnemyStateFactory" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\States\EnemyStateFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.States.PatrolState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAIAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\States\PatrolState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Entities.Player.PlayerGo" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\PlayerGo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="EntityData" Collapsed="true">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAggAAIAAAIAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Entities\EntityData.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TrapData" Collapsed="true">
+    <Position X="13" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAgAAAAAAoAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\TrapData.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="IAnimationController" Collapsed="true">
+    <Position X="11.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\IAnimationController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IInputController" Collapsed="true">
+    <Position X="16.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\IInputController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IMovementController" Collapsed="true">
+    <Position X="11.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\IMovementController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Entities.IEntityGo" Collapsed="true">
+    <Position X="14.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\EntityGo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Entities.States.IEnemyState" Collapsed="true">
+    <Position X="13" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemies\States\IEnemyState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TrapType" Collapsed="true">
+    <Position X="11.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Entities\TrapData.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

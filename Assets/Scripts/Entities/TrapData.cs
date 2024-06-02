@@ -1,13 +1,17 @@
 using System;
-using System.Numerics;
+using UnityEngine;
 
 [Serializable]
-public struct TrapData
+public class TrapData
 {
-    public bool isActivated;
-    public TrapType trapType;
-    public Vector3 position;
-    public int roomId; 
+    public float x;
+    public float y;
+
+    public TrapData(Vector3 position)
+    {
+        this.x = position.x;
+        this.y = position.y;
+    }
 }
 
 public enum TrapType

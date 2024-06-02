@@ -1,0 +1,727 @@
+fileFormatVersion: 2
+guid: d35273f78a0c4de4cb90bb73a9d8600d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8968390751896453628
+    second: Skeleton_Warrior(Left)-Sheet_0
+  - first:
+      213: 1710167761438403497
+    second: Skeleton_Warrior(Left)-Sheet_1
+  - first:
+      213: 1531927938875774766
+    second: Skeleton_Warrior(Left)-Sheet_2
+  - first:
+      213: 1336719949227967543
+    second: Skeleton_Warrior(Left)-Sheet_3
+  - first:
+      213: 6948218388457040186
+    second: Skeleton_Warrior(Left)-Sheet_4
+  - first:
+      213: -4184303924642094037
+    second: Skeleton_Warrior(Left)-Sheet_5
+  - first:
+      213: -2056822359033080790
+    second: Skeleton_Warrior(Left)-Sheet_6
+  - first:
+      213: -886729937295638939
+    second: Skeleton_Warrior(Left)-Sheet_7
+  - first:
+      213: 3067864892995146494
+    second: Skeleton_Warrior(Left)-Sheet_8
+  - first:
+      213: -9099418271627517108
+    second: Skeleton_Warrior(Left)-Sheet_9
+  - first:
+      213: 9161701073274314773
+    second: Skeleton_Warrior(Left)-Sheet_10
+  - first:
+      213: 1159825868044172602
+    second: Skeleton_Warrior(Left)-Sheet_11
+  - first:
+      213: 2714030744481055233
+    second: Skeleton_Warrior(Left)-Sheet_12
+  - first:
+      213: -1220380388304785989
+    second: Skeleton_Warrior(Left)-Sheet_13
+  - first:
+      213: 1518046631432162604
+    second: Skeleton_Warrior(Left)-Sheet_14
+  - first:
+      213: -8124800958488390520
+    second: Skeleton_Warrior(Left)-Sheet_15
+  - first:
+      213: 8085562711222738296
+    second: Skeleton_Warrior(Left)-Sheet_16
+  - first:
+      213: 6351062187093000897
+    second: Skeleton_Warrior(Left)-Sheet_17
+  - first:
+      213: -2593053466917125802
+    second: Skeleton_Warrior(Left)-Sheet_18
+  - first:
+      213: -8830892198692457448
+    second: Skeleton_Warrior(Left)-Sheet_19
+  - first:
+      213: 859325037774369427
+    second: Skeleton_Warrior(Left)-Sheet_20
+  - first:
+      213: -9003421319905277021
+    second: Skeleton_Warrior(Left)-Sheet_21
+  - first:
+      213: 4373299865156530697
+    second: Skeleton_Warrior(Left)-Sheet_22
+  - first:
+      213: 1135535670018640680
+    second: Skeleton_Warrior(Left)-Sheet_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 102
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e3052b020e98380800000000000000
+      internalID: -8968390751896453628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 102
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ab6cd6a48cbbb710800000000000000
+      internalID: 1710167761438403497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 102
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e27df2a0850824510800000000000000
+      internalID: 1531927938875774766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 102
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73449e926bbfc8210800000000000000
+      internalID: 1336719949227967543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 102
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a39a1d1afc70d6060800000000000000
+      internalID: 6948218388457040186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 102
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b246f6bffbd5ee5c0800000000000000
+      internalID: -4184303924642094037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 70
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2490c346f2b473e0800000000000000
+      internalID: -2056822359033080790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 70
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56ef9c3f1d3b1b3f0800000000000000
+      internalID: -886729937295638939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 70
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef21eddadde339a20800000000000000
+      internalID: 3067864892995146494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 70
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4361f0fa4f58b180800000000000000
+      internalID: -9099418271627517108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 70
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510a4dad596e42f70800000000000000
+      internalID: 9161701073274314773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 70
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3df4126b77881010800000000000000
+      internalID: 1159825868044172602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 38
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1024842259c2aa520800000000000000
+      internalID: 2714030744481055233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 38
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd6d30b086501fe0800000000000000
+      internalID: -1220380388304785989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 38
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d0efa4e5f211510800000000000000
+      internalID: 1518046631432162604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 38
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 884db864398ee3f80800000000000000
+      internalID: -8124800958488390520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 38
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87d539b5270b53070800000000000000
+      internalID: 8085562711222738296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 38
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c20818e861832850800000000000000
+      internalID: 6351062187093000897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 6
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6514fc44c9f930cd0800000000000000
+      internalID: -2593053466917125802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 6
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814fa27555e527580800000000000000
+      internalID: -8830892198692457448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 6
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 392f327a19feceb00800000000000000
+      internalID: 859325037774369427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 6
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab0edff20c6d0380800000000000000
+      internalID: -9003421319905277021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 6
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9023bee7e0511bc30800000000000000
+      internalID: 4373299865156530697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Warrior(Left)-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 6
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82b0f31fcab32cf00800000000000000
+      internalID: 1135535670018640680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Skeleton_Warrior(Left)-Sheet_0: -8968390751896453628
+      Skeleton_Warrior(Left)-Sheet_1: 1710167761438403497
+      Skeleton_Warrior(Left)-Sheet_10: 9161701073274314773
+      Skeleton_Warrior(Left)-Sheet_11: 1159825868044172602
+      Skeleton_Warrior(Left)-Sheet_12: 2714030744481055233
+      Skeleton_Warrior(Left)-Sheet_13: -1220380388304785989
+      Skeleton_Warrior(Left)-Sheet_14: 1518046631432162604
+      Skeleton_Warrior(Left)-Sheet_15: -8124800958488390520
+      Skeleton_Warrior(Left)-Sheet_16: 8085562711222738296
+      Skeleton_Warrior(Left)-Sheet_17: 6351062187093000897
+      Skeleton_Warrior(Left)-Sheet_18: -2593053466917125802
+      Skeleton_Warrior(Left)-Sheet_19: -8830892198692457448
+      Skeleton_Warrior(Left)-Sheet_2: 1531927938875774766
+      Skeleton_Warrior(Left)-Sheet_20: 859325037774369427
+      Skeleton_Warrior(Left)-Sheet_21: -9003421319905277021
+      Skeleton_Warrior(Left)-Sheet_22: 4373299865156530697
+      Skeleton_Warrior(Left)-Sheet_23: 1135535670018640680
+      Skeleton_Warrior(Left)-Sheet_3: 1336719949227967543
+      Skeleton_Warrior(Left)-Sheet_4: 6948218388457040186
+      Skeleton_Warrior(Left)-Sheet_5: -4184303924642094037
+      Skeleton_Warrior(Left)-Sheet_6: -2056822359033080790
+      Skeleton_Warrior(Left)-Sheet_7: -886729937295638939
+      Skeleton_Warrior(Left)-Sheet_8: 3067864892995146494
+      Skeleton_Warrior(Left)-Sheet_9: -9099418271627517108
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

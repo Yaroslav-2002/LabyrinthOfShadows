@@ -7,16 +7,17 @@ using UnityEngine;
 public class PlayerData
 {
     public float health;
-    public Vector3 position;
-    public float damage;
-    public int keys;
-    public int roomId;
+    public float x;
+    public float y;
+    public int damage;
+    public bool hasKey;
 
-    public PlayerData(float health, Vector3 position, float damage, int keys)
+    public PlayerData(float health, Vector3 position, int damage, bool hasKey)
     {
         this.health = health;
-        this.position = position;
+        this.x = position.x;
+        this.y = position.y;
         this.damage = damage;
-        this.keys = keys;
+        this.hasKey = hasKey;
     }
 }
